@@ -11,36 +11,41 @@ def clean_article(article:dict):
         "BodyText": article["BodyText"],
         "text": article["text"], 
         "clean_date": article["clean_date"],
-        "full_text": "\n".join([article["Heading"], article["SubHeading"], article["BodyText"]])}
+        "full_text": "\n".join([article["Heading"], article["SubHeading"], article["text"]])}
 
 date_ranges = {
-    "2019_election": [
-        ("07-05-2019", "09-05-2019"), # Election announcement
-        ("29-05-2019", "12-06-2019"), # Election campaign + day
-        ("21-06-2019", "29-06-2019")  # Government formation
+    "2019_election_announcement": [("07-05-2019", "09-05-2019")], # Election announcement
+    "2019_election_campagin":     [("29-05-2019", "06-06-2019")], # Election campaign + day
+    "2019_election_government": [("25-06-2019", "27-06-2019")],  # Government formation
+
+    "mink_start": [
+        ("04-11-2020", "12-11-2020") 
     ],
-    "mink": [
-        ("04-11-2020", "20-11-2020") 
+    "mink_mogens_jensen": [
+        ("17-11-2020", "19-11-2020")
+        ],
+    "covid_week_1": [
+        ("10-03-2020", "17-03-2020"), # First lockdown
     ],
-    "covid": [
-        ("04-03-2020", "25-03-2020"), # First lockdown
+    "covid_week_2": [
+        ("18-03-2020", "25-03-2020"), # First lockdown
     ],
     # "nurse_strike": [
     #     ("12-06-2021", "26-06-2021"),
     #     ("23-08-2021", "30-08-2021")
     # ],
-    "defence_referendum" : [
-        ("06-03-2022", "13-03-2022"), # Election announcement
-        ("20-05-2022", "03-06-2022")  # Election campaign + day
-    ],
-    "2022_election": [
-        ("05-10-2022", "07-10-2022"), # Election announcement
-        ("18-10-2022", "02-11-2022"), # Election campaign + day
-        ("12-12-2022", "14-12-2022")  # Government formation
-    ],
-    "test_event": [
-        ("01-01-2020", "21-01-2020")
-    ]
+    # "defence_referendum" : [
+    #     ("06-03-2022", "13-03-2022"), # Election announcement
+    #     ("20-05-2022", "03-06-2022")  # Election campaign + day
+    # ],
+    # "2022_election": [
+    #     ("05-10-2022", "07-10-2022"), # Election announcement
+    #     ("18-10-2022", "02-11-2022"), # Election campaign + day
+    #     ("12-12-2022", "14-12-2022")  # Government formation
+    # ],
+    # "test_event": [
+    #     ("01-01-2020", "03-01-2020")
+    # ]
 }
 
 def clean_and_save(file_path, out_path):

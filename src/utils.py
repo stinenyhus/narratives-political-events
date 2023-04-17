@@ -128,8 +128,8 @@ def get_date_from_filename(file_name:str):
     Returns:
         str: the date of the given file
     """    
-    date = re.sub(r'\D',"", file_name)[:8] # TODO: make more robust/better regex
-    datetime_obj = datetime.strptime(date, "%Y%m%d") 
+    date = re.search(r'\d{4}-\d{2}-\d{2}', file_name).group(0)
+    datetime_obj = datetime.strptime(date, "%Y-%m-%d") 
     return datetime_obj.date().strftime("%d-%m-%Y")
 
 def get_day_of_week(file_name:str):
